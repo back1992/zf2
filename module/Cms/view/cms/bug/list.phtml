@@ -1,0 +1,19 @@
+<?php
+
+		$this->headStyle()->appendStyle('form.css');
+
+?>
+<!-- <?php var_dump($this->headStyle()); ?> -->
+<h2>Current Bugs</h2>
+<table class='spreadsheet' cellspacing='0'>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Date</th>
+		<th>Priority</th>
+		<th>Status</th>
+		<th>URL</th>
+		<th>Submitter</th>
+		<th>Description</th>
+	</tr>
+	<?php echo $this->partialLoop('table-row.phtml', iterator_to_array($bugs)); ?> 
+</table>

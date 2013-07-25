@@ -1,0 +1,34 @@
+<?php
+// module/Album/view/bug/bug/edit.phtml:
+$title = 'Edit a bug report';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>To update this bug report make any changes you need to in this form,
+and then click update.</p>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+	'bug',
+	array(
+		'action' => 'edit',
+		'id'
+		=> $this->id,
+		)
+	));
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo "<dt>";
+echo $this->formRow($form->get('author'));
+echo "</dt>";
+echo $this->formRow($form->get('email'));
+echo $this->formRow($form->get('date'));
+echo $this->formRow($form->get('url'));
+echo $this->formRow($form->get('description'));
+echo $this->formRow($form->get('image-file'));
+echo $this->formRow($form->get('avatar'));
+echo $this->formRow($form->get('priority'));
+echo $this->formRow($form->get('status'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

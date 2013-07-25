@@ -1,0 +1,38 @@
+<h2>Submit a bug report</h2>
+<p>To submit a new bug report please fill out this form completely:</p>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+	'bug',
+	array(
+		'action' => 'input',
+		'id'
+		=> $this->id,
+		)
+	));
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo "<dt>";
+echo $this->formRow($form->get('author'));
+echo "</dt>";
+echo $this->formRow($form->get('email'));
+echo $this->formRow($form->get('date'));
+echo $this->formRow($form->get('url'));
+echo $this->formRow($form->get('description'));
+// echo $this->formRow($form->get('image-file'));
+// echo $this->formRow($form->get('avatar'));
+echo $this->formRow($form->get('priority'));
+echo $this->formRow($form->get('status'));
+?>
+
+    <div class="form-element">
+        <?php $fileElement = $form->get('image-file'); ?>
+        <?php echo $this->formLabel($fileElement); ?>
+        <?php echo $this->formFile($fileElement); ?>
+        <?php echo $this->formElementErrors($fileElement); ?>
+    </div>
+
+
+<?php
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
