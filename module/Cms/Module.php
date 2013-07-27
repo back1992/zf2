@@ -7,6 +7,9 @@ use Cms\Model\BugTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
+use Zend\EventManager\Event;
+use Zend\Mvc\ModuleRouteListener;
+use Zend\Mvc\MvcEvent;
 
 class Module
 {
@@ -45,5 +48,25 @@ class Module
                 ),
             );
     }
+
+    public function onBootstrap(MvcEvent $e)
+    {
+       $e->getApplication()->getServiceManager()->get('translator');
+       $eventManager        = $e->getApplication()->getEventManager();
+       $moduleRouteListener = new ModuleRouteListener();
+       $moduleRouteListener->attach($eventManager);
+       $this->setPhpSettings($e);
+   }
+
+
+   private function setPhpSettings(MvcEvent $e)
+   {
+       $config = $e->getApplication()->getConfig();
+       if ($config['phpSettings']) {
+           foreach ($config['phpSettings'] as $key => $value) {
+               ini_set($key, $value);
+           }
+       }
+   }
 
 }

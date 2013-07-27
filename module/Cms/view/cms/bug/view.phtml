@@ -1,0 +1,14 @@
+
+<?php 
+$form->prepare(); 
+echo $this->form()->openTag($form);
+foreach ($form as $element) {
+echo $this->formLabel($element);
+echo $this->formElement($element);
+echo '<br />';
+// <-- Magic!
+echo $this->formElementErrors($element);
+}
+// Render the closing tag
+echo $this->form()->closeTag();
+// The correct enctype is set here ?>

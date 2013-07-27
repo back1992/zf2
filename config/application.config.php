@@ -11,7 +11,7 @@ return array(
         'Album',
         'Lesson',
         'Cms',
-        // 'Bug'
+        'Mp3'
         ),
     'module_listener_options' => array(
         'config_glob_paths' => array('config/autoload/{,*.}{global,local}.php'),
