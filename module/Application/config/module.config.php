@@ -71,7 +71,7 @@ return array(
             ),
         ),
     ),
-'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+// 'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
 
 'service_manager' => array(
     'factories' => array(
@@ -118,22 +118,22 @@ return array(
             'route' => 'home',
             ),
         array(
-            'label' => 'Album',
-            'route' => 'album',
+            'label' => 'Quiz',
+            'route' => 'quiz',
             'pages' => array(
                 array(
                     'label' => 'Add',
-                    'route' => 'album',
+                    'route' => 'quiz',
                     'action' => 'add',
                     ),
                 array(
                     'label' => 'Edit',
-                    'route' => 'album',
+                    'route' => 'quiz',
                     'action' => 'edit',
                     ),
                 array(
                     'label' => 'Delete',
-                    'route' => 'album',
+                    'route' => 'quiz',
                     'action' => 'delete',
                     ),
                 ),

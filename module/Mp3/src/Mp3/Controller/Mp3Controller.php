@@ -13,16 +13,8 @@ class Mp3Controller extends AbstractActionController
 
 	public function indexAction()
 	{
-		// grab the paginator from the Mp3Table
-		$paginator = $this->getMp3Table()->fetchAll(true);
-// set the current page to what has been passed in query string, or to 1 if none set
-		$paginator->setCurrentPageNumber((int)$this->params()->fromQuery('page', 1));
-// set the number of items per page to 10
-		$paginator->setItemCountPerPage(10);
-
-		// var_dump($paginator);
 		return new ViewModel(array(
-			'paginator' => $paginator
+			'Mp3s' => $this->getMp3Table()->fetchAll(),
 			));
 
 
@@ -119,7 +111,7 @@ class Mp3Controller extends AbstractActionController
 				$id = (int) $request->getPost('id');
 				$this->getMp3Table()->deleteMp3($id);
 			}
-// Redirect to list of mp3s
+// Redirect to list of Mp3s
 			return $this->redirect()->toRoute('mp3');
 		}
 		return array(
@@ -127,6 +119,7 @@ class Mp3Controller extends AbstractActionController
 			=> $id,
 			'mp3' => $this->getMp3Table()->getMp3($id)
 			);
+
 
 	}
 	// module/Mp3/src/Mp3/Controller/Mp3Controller.php:

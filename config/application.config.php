@@ -11,6 +11,7 @@ return array(
         'Album',
         'Lesson',
         'Cms',
+        'Quiz',
         'Mp3'
         ),
     'module_listener_options' => array(

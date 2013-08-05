@@ -1,0 +1,45 @@
+<?php
+// module/Quiz/view/quiz/quiz/index.phtml:
+$title = 'My quizs';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+	<a href="<?php echo $this->url('quiz', array('action'=>'add'));?>">Add new quiz</a>
+</p>
+
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Area</th>
+		<th>Audio file</th>
+		<th>&nbsp;</th>
+	</tr>
+	<?php foreach ($this->paginator as $quiz) : // <-- change here! ?>
+	<tr>
+		<td><?php echo $this->escapeHtml($quiz->title);?></td>
+		<td><?php echo $this->escapeHtml($quiz->area);?></td>
+		<td><?php echo $this->escapeHtml($quiz->audiofile);?></td>
+		<td>
+			<a href="<?php echo $this->url('quiz',
+			array('action' => 'edit', 'id' => $quiz->id));?>">Edit</a>
+<a href="<?php echo $this->url('quiz',
+array('action' => 'delete', 'id' => $quiz->id));?>">Delete</a>
+</td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php
+echo $this->paginationControl(
+// the paginator object
+	$this->paginator,
+// the scrolling style
+	'sliding',
+// the partial to use to render the control
+	array('partial/paginator.phtml', 'Quiz'),
+// the route to link to when a user clicks a control link
+	array(
+		'route' => 'quiz'
+		)
+	);
+?>
