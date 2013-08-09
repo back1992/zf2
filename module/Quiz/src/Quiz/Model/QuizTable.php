@@ -16,11 +16,12 @@ class QuizTable
 	public function fetchAll($paginated=false)
 	{
 		if($paginated) {
-// create a new Select object for the table quiz
+			// create a new Select object for the table quiz
 			$select = new Select('quiz');
 // create a new result set based on the Quiz entity
 			$resultSetPrototype = new ResultSet();
 			$resultSetPrototype->setArrayObjectPrototype(new Quiz());
+
 // create a new pagination adapter object
 			$paginatorAdapter = new DbSelect(
 // our configured select object
@@ -31,9 +32,12 @@ class QuizTable
 				$resultSetPrototype
 				);
 			$paginator = new Paginator($paginatorAdapter);
+
+			 // $paginator = $this->tableGateway->select();
 			return $paginator;
 		}
 		$resultSet = $this->tableGateway->select();
+
 		return $resultSet;
 
 	}
@@ -55,7 +59,8 @@ class QuizTable
 		$data = array(
 			'area' => $quiz->area,
 			'title' => $quiz->title,
-			'audiofile' => $quiz->audiofile,
+			// 'audiofile' => $quiz->audiofile,
+			'audiofile' => $quiz->audiofile
 			);
 		$id = (int)$quiz->id;
 		if ($id == 0) {
@@ -76,8 +81,11 @@ class QuizTable
 		if (!$row) {
 			throw new \Exception("Could not find row $id");
 		}
-		$audiofile =  $row->audiofile;
-		unlink($audiofile);
+		echo '<pre>';
+		var_dump($row);
+		$audiofilepath =  $row->audiofilepath;
+		var_dump(unlink($audiofilepath));
+		echo "</pre>";
 		$this->tableGateway->delete(array('id' => $id));
 		
 	}

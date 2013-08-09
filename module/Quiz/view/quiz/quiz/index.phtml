@@ -16,10 +16,16 @@ $this->headTitle($title);
 		<th>&nbsp;</th>
 	</tr>
 	<?php foreach ($this->paginator as $quiz) : // <-- change here! ?>
+	<?php 
+	// echo '<pre>';
+	// var_dump($quiz);
+	// echo "</pre>";
+	?>
 	<tr>
 		<td><?php echo $this->escapeHtml($quiz->title);?></td>
 		<td><?php echo $this->escapeHtml($quiz->area);?></td>
-		<td><?php echo $this->escapeHtml($quiz->audiofile);?></td>
+		<!-- <td><?php echo $this->escapeHtml($quiz->audiofilepath);?></td> -->
+		<td><?php echo $this->escapeHtml($quiz->audiofilepath);?></td> --> -->
 		<td>
 			<a href="<?php echo $this->url('quiz',
 			array('action' => 'edit', 'id' => $quiz->id));?>">Edit</a>

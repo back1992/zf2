@@ -19,6 +19,10 @@ class QuizController extends AbstractActionController
 		$paginator->setCurrentPageNumber((int)$this->params()->fromQuery('page', 1));
 // set the number of items per page to 10
 		$paginator->setItemCountPerPage(10);
+		// echo "<pre>";
+		// var_dump($paginator);
+		// echo "</pre>";
+		// 
 		return new ViewModel(array(
 			'paginator' => $paginator
 			));
@@ -41,7 +45,7 @@ class QuizController extends AbstractActionController
 			$form->setData($post);
 			if ($form->isValid()) {
 				$quiz->exchangeArray($form->getData());
-				var_dump($quiz);
+				// var_dump($quiz);
 				$this->getQuizTable()->saveQuiz($quiz);
 				$data = $form->getData();
 // Redirect to list of quizs
@@ -126,6 +130,7 @@ class QuizController extends AbstractActionController
 			}
 // Redirect to list of quizs
 			return $this->redirect()->toRoute('quiz');
+			// return;
 		}
 		return array(
 			'id'

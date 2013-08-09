@@ -10,7 +10,7 @@ class Quiz implements InputFilterAwareInterface
 	public $id;
 	public $area;
 	public $title;
-	// public $position;
+	// public $location;
 	public $audiofile;
 
 	protected $inputFilter;
@@ -23,7 +23,8 @@ class Quiz implements InputFilterAwareInterface
 		: null;
 		$this->area = (isset($data['area'])) ? $data['area'] : null;
 		$this->title = (isset($data['title'])) ? $data['title'] : null;
-		// $this->position = (isset($data['position'])) ? $data['position'] : null;
+		// $this->location = (isset($data['location'])) ? $data['location'] : null;
+		$this->audiofilepath = (isset($data['audiofile'])) ? $data['audiofile'] : null;
 		$this->audiofile = (isset($data['audiofile']['tmp_name'])) ? $data['audiofile']['tmp_name'] : $data['audiofile'];
 	}
 // Add content to these methods:
