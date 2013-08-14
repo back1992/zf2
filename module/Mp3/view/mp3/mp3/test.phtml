@@ -1,25 +1,9 @@
 <?php
-// $baseUrl = $this->baseUrl();
-$mp3TagArrayTmp = $this->mp3TagArrayTmp;
-$baseUrl = $this->serverUrl();
-// echo $this->baseUrl(); 
-// echo  $this->view->baseUrl();
+for ($i = 0; $i < count($this->mp3TagArrayTmp) - 1; $i++) {
+	echo '<audio src="'.$this->basePath() .'/data/audio/shandong.ogg#t=' . $this->mp3TagArrayTmp[$i] . ',' . $this->mp3TagArrayTmp[$i + 1] . '"  controls >';
+	echo 'audio is not supported.';
+	echo '</audio><br />';
+	echo $i+1 ;
+	// echo '<button name="button'.$i.'" type="button" onclick="alert(\'Hello world!\')">Buggy Whipp Bio</button> <br />';
+}
 
-// for ($i = 0; $i < count($mp3TagArrayTmp) - 1; $i++) {
-// 	// echo '<audio src="data/audio/shandong.mp3#t=' . $mp3TagArrayTmp[$i] . ',' . $mp3TagArrayTmp[$i + 1] . '"  controls >';
-// 	echo '<audio src="'.$baseUrl.'/data/audio/shandong.mp3#t=' . $mp3TagArrayTmp[$i] . ',' . $mp3TagArrayTmp[$i + 1] . '"  controls >';
-// 	echo 'audio is not supported.';
-// 	echo '</audio><br />';
-// 	echo $i+1 ;
-// 	echo '<button name="button'.$i.'" type="button" onclick="alert(\'Hello world!\')">Buggy Whipp Bio</button> <br />';
-// }
-
-	echo '<audio src="'.$baseUrl.'/data/audio/shandong.mp3' . '"  controls >';
-	echo 'Your browser does not support the audio element.';
-	echo '</audio>';
-
-	?>
-
-	<audio src="data/audio/shandong.mp3" controls="controls">
-Your browser does not support the audio element.
-</audio>

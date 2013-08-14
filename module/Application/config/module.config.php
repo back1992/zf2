@@ -118,22 +118,22 @@ return array(
             'route' => 'home',
             ),
         array(
-            'label' => 'Mp3',
-            'route' => 'mp3',
+            'label' => 'Quiz',
+            'route' => 'quiz',
             'pages' => array(
                 array(
                     'label' => 'Add',
-                    'route' => 'mp3',
+                    'route' => 'quiz',
                     'action' => 'add',
                     ),
                 array(
                     'label' => 'Edit',
-                    'route' => 'mp3',
+                    'route' => 'quiz',
                     'action' => 'edit',
                     ),
                 array(
                     'label' => 'Delete',
-                    'route' => 'mp3',
+                    'route' => 'quiz',
                     'action' => 'delete',
                     ),
                 ),

@@ -1,0 +1,39 @@
+<?php
+// module/Quiz/view/quiz/quiz/index.phtml:
+$title = 'Searching for strings';
+$this->headTitle($title);
+$this->headScript()->appendFile($this->basePath() . '/js/my.js');
+$this->headLink()->prependStylesheet($this->basePath() . '/css/myjs.css')
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<body>
+<video id="meadow" poster="purples.jpg" >
+<source src="meadow.m4v" type="video/mp4"/>
+<source src="meadow.ogv" type="video/ogg" />
+<object width="425" height="344">
+<param name="movie"
+value="http://www.youtube.com/v/CNRTeSoSbgg&hl=en_US&fs=1&"></param>
+<embed src="http://www.youtube.com/v/CNRTeSoSbgg&hl=en_US&fs=1&"
+type="application/x-shockwave-flash"
+allowscriptaccess="always" allowfullscreen="true" width="425"
+height="344">
+<p>Audio slideshow from Shaw Nature Center</embed></object>
+</video>
+<div id="feedback"></div>
+<div id="controls">
+<button id="start">Play</button>
+<button id="stop">Stop</button>
+<button id="pause">Pause</button>
+</controls>
+
+		</body>
+
+
+
+
+
+
+
+
+
+
